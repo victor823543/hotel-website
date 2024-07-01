@@ -1,0 +1,189 @@
+
+.mainContainer {
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #00000084;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 80px;
+    z-index: 50;
+    transition: top 0.4s;
+}
+
+.visible {
+    top: 0;
+}
+  
+.hidden {
+    top: -8.5rem;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+}
+
+.titleContainer h2 {
+    margin: 0px;
+    font-weight: 400;
+    letter-spacing: 7px;
+    font-size: 1.6rem;
+}
+
+.titleContainer p {
+    margin: 0;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+.menuText {
+    display: none;
+}
+
+.bookingContainer {
+    display: flex;
+    justify-content: center;
+    width: 8rem;
+    padding: 0 20px;
+}
+
+.bookingContainer p {
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+:root {
+    --bar-bg: white;
+}
+
+.menuContainer {
+    width: 8rem;
+    padding: 0 20px;
+}
+
+.menuIcon {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menuIcon p {
+    text-indent: 50px;
+    margin: 0px;
+}
+
+.menuIcon__cheeckbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-touch-callout: none;
+    position: absolute;
+    opacity: 0;
+}
+
+.menuIcon div {
+    margin: auto 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+}
+
+.menuIcon span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--bar-bg, #000);
+    border-radius: 1px;
+    transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+}
+
+.menuIcon span:first-of-type {
+    top: 0;
+}
+
+.menuIcon span:last-of-type {
+    bottom: 0;
+}
+
+.menuIcon.active span:first-of-type,
+.menuIcon__cheeckbox:checked + div span:first-of-type {
+    transform: rotate(45deg);
+    top: 5px;
+}
+
+.menuIcon.active span:last-of-type,
+.menuIcon__cheeckbox:checked + div span:last-of-type {
+    transform: rotate(-45deg);
+    bottom: 5px;
+}
+
+.menuIcon.active:hover span:first-of-type,
+.menuIcon.active:hover span:last-of-type,
+.menuIcon:hover .menuIcon__cheeckbox:checked + div span:first-of-type,
+.menuIcon:hover .menuIcon__cheeckbox:checked + div span:last-of-type {
+    width: 22px;
+}
+
+.menuIcon:hover span:first-of-type {
+    width: 26px;
+}
+
+.menuIcon:hover span:last-of-type {
+    width: 12px;
+}
+
+@media (min-width: 768px) {
+    .menuText {
+        display: block;
+    }
+
+    .bookingContainer {
+        border-left: solid white 1px;
+    }
+
+    .menuContainer {
+        border-right: solid white 1px;
+    }
+
+    .bookingContainer p {
+        font-size: 1.4rem;
+        padding: 0 50px;
+    }
+
+    .menuIcon {
+        transform: scale(1.5);
+    }
+
+    .menuContainer {
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .menuIcon:hover span:first-of-type {
+    width: 100%;
+    }
+
+    .menuIcon:hover span:last-of-type {
+    width: 100%;
+    }
+}

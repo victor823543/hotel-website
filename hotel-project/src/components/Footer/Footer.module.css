@@ -1,0 +1,26 @@
+
+.linksContainer {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.linkSet h2 {
+    color: antiquewhite;
+
+}
+
+ul {
+    list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+li {
+    opacity: .6;
+}

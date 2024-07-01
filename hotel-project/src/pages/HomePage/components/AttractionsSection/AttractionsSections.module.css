@@ -1,0 +1,45 @@
+.mainContainer {
+    padding: 5rem 0;
+}
+
+.lowerSection {
+    overflow: hidden;
+    width: 100%;
+    cursor: none;
+}
+
+.imgsContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 800vw;
+}
+
+.upperSection {
+    position: relative;
+    min-height: 50vh;
+    margin-bottom: 4rem;
+}
+
+.h1 {
+    font-size: clamp(2.6rem, 6vw, 5.5rem);
+    margin-left: 3rem;
+}
+
+.p {
+    margin: 0 8vw;
+}
+
+
+
+@media (min-width: 768px) {
+    .textContainer {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    .p {
+        width: 35vw;
+    }
+}
