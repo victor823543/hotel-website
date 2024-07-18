@@ -1,14 +1,18 @@
 import styles from './NavBar.module.css'
 import { useState, useEffect} from 'react'
 import { motion } from 'framer-motion';
+import Menu from './Menu';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+    const navigate = useNavigate()
     const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
     const [visible, setVisible] = useState(true);
+    const [showMenu, setShowMenu] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
-          const currentScrollPos = window.pageYOffset;
+          const currentScrollPos = window.scrollY;
           const visible = prevScrollPos > currentScrollPos;
     
           setVisible(visible);
@@ -23,8 +27,11 @@ const NavBar = () => {
       }, [prevScrollPos]);
 
   return (
-    <motion.div className={`${styles.mainContainer} ${visible ? styles.visible : styles.hidden}`}>
-        <div className={styles.menuContainer}>
+    <>
+    <motion.div className={`${styles.mainContainer} ${visible ? styles.visible : styles.hidden}`}
+      style={showMenu ? {borderBottom: 'solid 1px rgba(255 255 255 / .5)', backgroundColor: 'var(--primary-color)'} : undefined}
+    >
+        <div className={styles.menuContainer} onClick={() => setShowMenu(!showMenu)}>
             <div className={styles.menuIcon}>
                 <input className={styles.menuIcon__cheeckbox} type="checkbox" />
                 <div>
@@ -35,7 +42,7 @@ const NavBar = () => {
             </div> 
         </div>
         
-        <div className={styles.titleContainer}>
+        <div className={styles.titleContainer} onClick={() => navigate('/')}>
             <h2>RIVERSIDE</h2>
             <p>HOTEL</p>
 
@@ -44,6 +51,9 @@ const NavBar = () => {
             <p>Boka rum</p>
         </div>
     </motion.div>
+    <Menu isOpen={showMenu}/>
+    </>
+    
   )
 }
 

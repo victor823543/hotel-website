@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface DecorationLineProps {
     width: number;
@@ -49,11 +50,15 @@ const DecorationLine: React.FC<DecorationLineProps> = ({width, color, variant, h
 
   return (
     <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} style={{position: 'absolute', left: '0', top: '10px', opacity: '.3', pointerEvents: 'none', transform: `translateY(${translateY}px)`}}>
-      <path
+      <motion.path
         d={variations[variant]}
         fill="transparent"
         stroke={color}
         strokeWidth="1"
+        initial={{pathLength: 0}}
+        whileInView={{pathLength: 1}}
+        viewport={{once: true}}
+        transition={{duration: 2.5, delay: .3}}
       />
     </svg>
   );

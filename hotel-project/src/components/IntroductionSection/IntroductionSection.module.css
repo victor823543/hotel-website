@@ -1,0 +1,86 @@
+.mainContainer {
+    position: relative;
+    padding: 16rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    overflow: hidden;
+}
+
+.largeTextContainer {
+    z-index: 10;
+}
+
+.smallTextContainer {
+    z-index: 10;
+}
+
+.largeText {
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.smallText {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+.imageWrapper {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .largeText {
+        margin: 0 4rem;
+    }
+
+    .smallTextContainer {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    .smallText {
+        width: 40vw;
+        font-size: 1rem;
+        line-height: 2;
+    }
+
+    .imageWrapper {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+
+    }
+
+    .imageWrapper > img {
+        filter: grayscale(100%);
+        opacity: .6;
+        border-image: linear-gradient(var(--primary-color), var(--primary-color)) fill 1;
+        mix-blend-mode: overlay;
+    }
+
+    .img1 {
+        position: absolute;
+        width: 28vw;
+        top: 5rem;
+        left: -5px;
+    }
+
+    .img2 {
+        position: absolute;
+        width: 36vw;
+        top: 20rem;
+        right: -10vw;
+    }
+
+    .img3 {
+        position: absolute;
+        width: 18vw;
+        bottom: 5rem;
+        left: 25vw;
+    }
+}

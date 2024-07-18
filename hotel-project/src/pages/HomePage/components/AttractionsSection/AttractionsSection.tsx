@@ -5,6 +5,7 @@ import DecorationLine from '../../../../components/DecorationLine/DecorationLine
 import ArrowWithCircle from '../../../../components/ArrowWithCircle'
 import useContainerWidth from '../../../../hooks/useContainerWidth'
 import useViewportWidth from '../../../../hooks/useViewportWidth'
+import BasicTextAnimation from '../../../../components/TextAnimationA/BasicTextAnimation'
 import { motion } from 'framer-motion'
 
 import liseberg from '../../../../assets/images/liseberg.jpg'
@@ -58,7 +59,7 @@ const AttractionsSection = () => {
 
     const moveContainer = (direction: 'right' | 'left') => {
         if (allowClick) {
-            if (direction === 'right') {
+            if (direction === 'left') {
                 setContainerX(containerX + containerWidth)
                 setCurrentImage(currentImage - 1)
             } else {
@@ -91,10 +92,14 @@ const AttractionsSection = () => {
     <div className={styles.mainContainer}>
         <div className={styles.upperSection}>
             <div className={styles.headerContainer}>
-                <h1 className={styles.h1}>SEVÄRDIGHETER</h1>
+                <BasicTextAnimation>
+                    <h1 className={styles.h1}>SEVÄRDIGHETER</h1>
+                </BasicTextAnimation>
             </div>
             <div className={styles.textContainer}>
-                <p className={styles.p}>Oavsett om du reser i affärer eller nöje kommer du att hitta en hel del att göra i Göteborg. Hotellets läge i hamnen ligger nära Lindholmen Science Park och konferenscenter samt många företag, shoppingdistrikt och museum ägnade åt områdets rika sjöfartshistoria. Gå på en föreställning på Backa Teater och ta sedan en promenad genom 1800-talsträdgårdarna i Trädgårdsföreningen. Fortsätt ditt naturäventyr med ett besök i Slottsskogen. För att uppleva något annorlunda ska du besöka Skandinaviens största nöjespark Liseberg för en dag full av äventyr.</p>
+                <BasicTextAnimation>
+                    <p className={styles.p}>Oavsett om du reser i affärer eller nöje kommer du att hitta en hel del att göra i Göteborg. Hotellets läge i hamnen ligger nära Lindholmen Science Park och konferenscenter samt många företag, shoppingdistrikt och museum ägnade åt områdets rika sjöfartshistoria. Gå på en föreställning på Backa Teater och ta sedan en promenad genom 1800-talsträdgårdarna i Trädgårdsföreningen. Fortsätt ditt naturäventyr med ett besök i Slottsskogen. För att uppleva något annorlunda ska du besöka Skandinaviens största nöjespark Liseberg för en dag full av äventyr.</p>
+                </BasicTextAnimation>
             </div>
             <DecorationLine width={viewportWidth} variant={3} color='var(--secondary-color)' translateY={-250}/>
         </div>

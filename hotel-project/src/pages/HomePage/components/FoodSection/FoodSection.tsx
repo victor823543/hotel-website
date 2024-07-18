@@ -6,6 +6,7 @@ import BasicAnimateImg from '../../../../components/BasicAnimateImg/BasicAnimate
 import useElementScroll from '../../../../hooks/useElementScroll'
 import useContainerWidth from '../../../../hooks/useContainerWidth'
 import DecorationLine from '../../../../components/DecorationLine/DecorationLine'
+import BasicTextAnimation from '../../../../components/TextAnimationA/BasicTextAnimation'
 
 import breakfast1 from '../../../../assets/images/frukost-1.webp'
 import breakfast2 from '../../../../assets/images/frukost-2.avif'
@@ -34,10 +35,14 @@ const FoodSection = () => {
     <div ref={elementRef} className={styles.mainContainer}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <h1 className={styles.h1}>MAT MED KÄRLEK</h1>
+          <BasicTextAnimation>
+            <h1 className={styles.h1}>MAT MED KÄRLEK</h1>
+          </BasicTextAnimation>
         </div>
         <div className={styles.info}>
-          <p>Vår restaurang och bar har inspirerats av det dynamiska och mångsidiga området. Här frodas gränslös kreativitet och fantasi, och klassiker möter innovativa varianter - med en aning galenskap.</p>
+          <BasicTextAnimation>
+            <p>Vår restaurang och bar har inspirerats av det dynamiska och mångsidiga området. Här frodas gränslös kreativitet och fantasi, och klassiker möter innovativa varianter - med en aning galenskap.</p>
+          </BasicTextAnimation>
         </div>
         <div ref={img2Ref} className={styles.imageContainer}>
           <BasicAnimateImg source={linkObjects[selected]['source2']} motionValue={progressImg2}/>
@@ -49,10 +54,12 @@ const FoodSection = () => {
         </div>
         <ul className={styles.linkList}>
           {linkObjects.map((object, index) => (
-            <li className={styles.li} key={object.title}>
-              <div style={index === selected ? {opacity: 1} : {opacity: .5}} onMouseEnter={() => setSelected(index)}>{object.title}</div>
-              <Arrow display={index === selected}/>
-            </li>
+            <BasicTextAnimation>
+              <li className={styles.li} key={object.title}>
+                <div style={index === selected ? {opacity: 1} : {opacity: .5}} onMouseEnter={() => setSelected(index)}>{object.title}</div>
+                <Arrow display={index === selected}/>
+              </li>
+            </BasicTextAnimation>
           ))}
         </ul>
       </div>

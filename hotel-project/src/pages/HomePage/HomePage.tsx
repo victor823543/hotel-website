@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './HomePage.module.css'
 import LandingSection from './components/LandingSection/LandingSection'
 import IntroSection from './components/IntroSection/IntroSection'
