@@ -6,6 +6,7 @@
     height: 50vw;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 }
 
 .img {

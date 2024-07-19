@@ -114,7 +114,9 @@ const AttractionsSection = () => {
                 ))}
             </motion.div>
             {showCursor &&
-                <ArrowWithCircle direction={switchDirection} x={cursorPosition.x} y={cursorPosition.y}/>
+                <div className={styles.cursor}>
+                    <ArrowWithCircle direction={switchDirection} x={cursorPosition.x} y={cursorPosition.y}/>
+                </div>
             }
             
         </div>

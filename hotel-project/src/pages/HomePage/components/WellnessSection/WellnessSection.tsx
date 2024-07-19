@@ -3,8 +3,8 @@ import poolImg from '../../../../assets/images/pool.avif'
 import gymImg from '../../../../assets/images/gym.avif'
 
 const content = [
-    {title: 'RELAX SPA', source: poolImg},
-    {title: 'MODERN GYM', source: gymImg},
+    {title: 'RELAX SPA', source: poolImg, path: '/wellness'},
+    {title: 'MODERN GYM', source: gymImg, path: '/wellness'},
 ]
 
 const WellnessSection = () => {

@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from 'react'
-import { useScroll, useTransform } from 'framer-motion'
+import { useState, useRef, useEffect, RefObject } from 'react'
+import { useScroll, useTransform, MotionValue } from 'framer-motion'
 
-const useElementScroll = () => {
+const useElementScroll = (): [RefObject<HTMLImageElement>, MotionValue<number>] => {
     const {scrollY} = useScroll()
-  const ref = useRef(null)
+  const ref = useRef<HTMLImageElement|null>(null)
   const [elementTop, setElementTop] = useState(0);
   const [elementBottom, setElementBottom] = useState(0);
 

@@ -1,10 +1,10 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, MotionValue } from 'framer-motion';
 import styles from './BasicAnimateImg.module.css'
 
 interface ImgProps {
     source: string;
-    motionValue: number;
+    motionValue: MotionValue<number>;
 }
 
 const BasicAnimateImg: React.FC<ImgProps> = ({source, motionValue}) => {

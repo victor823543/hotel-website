@@ -4,13 +4,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import ArrowWithCircle from '../ArrowWithCircle'
 
 interface Content {
-    title: string;
+    title?: string;
     source: string;
 }
 
 interface ImageSliderAProps {
     title?: string;
     content: Content[];
+    includeImgTitle?: boolean;
 }
 
 const variants = {
@@ -23,11 +24,12 @@ const variants = {
   }})
 }
 
-const ImageSliderA: FC<ImageSliderAProps> = ({title=null, content}) => {
+const ImageSliderA: FC<ImageSliderAProps> = ({title=null, content, includeImgTitle=true}) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [showCursor, setShowCursor] = useState(false)
+  const [canClick, setCanClick] = useState(true)
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -46,6 +48,7 @@ const ImageSliderA: FC<ImageSliderAProps> = ({title=null, content}) => {
   const length = content.length
 
   const handleSlideClick = () => {
+    setCanClick(false)
     if (direction === 'left') {
       let newSlide = currentSlide - 1
       if (newSlide < 0) {
@@ -71,11 +74,11 @@ const ImageSliderA: FC<ImageSliderAProps> = ({title=null, content}) => {
   }
 
   return (
-    <div className={styles.mainContainer} onClick={handleSlideClick} onMouseEnter={() => setShowCursor(true)} onMouseLeave={() => setShowCursor(false)}>
+    <div className={styles.mainContainer} onClick={canClick ? handleSlideClick : undefined} onMouseEnter={() => setShowCursor(true)} onMouseLeave={() => setShowCursor(false)}>
       <div className={styles.slideContainer}>
         <h1>{title}</h1>
-
-        <div className={styles.titleBlock} onMouseEnter={() => setShowCursor(false)} onMouseLeave={() => setShowCursor(true)}>
+        {includeImgTitle &&
+          <div className={styles.titleBlock} onMouseEnter={() => setShowCursor(false)} onMouseLeave={() => setShowCursor(true)}>
           <p>LÄS MER</p>
           <AnimatePresence initial={false}>
             <motion.h2
@@ -94,6 +97,8 @@ const ImageSliderA: FC<ImageSliderAProps> = ({title=null, content}) => {
               transition={{duration: 0.8, ease: 'easeInOut'}}
             ></motion.span>
         </div>
+        }
+        
         <div className={`${styles.leftDisplay} ${styles.sideDisplay}`}>
         <AnimatePresence initial={false}>
             <motion.img 
@@ -117,6 +122,7 @@ const ImageSliderA: FC<ImageSliderAProps> = ({title=null, content}) => {
               initial='enter'
               animate='center'
               exit='exit'
+              onAnimationComplete={() => setCanClick(true)}
             />
           </AnimatePresence>
         </div>

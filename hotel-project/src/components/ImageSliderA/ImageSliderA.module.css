@@ -35,7 +35,9 @@
 
 .mainDisplay img {
     width: 100%;
+    height: 100%;
     position: absolute;
+    object-fit: cover;
 }
 
 .sideDisplay img {
@@ -98,8 +100,15 @@
     
 }
 
+.cursor {
+    display: none;
+}
 
 @media (min-width: 768px) {
+    .cursor {
+        display: block;
+    }
+
     .titleBlock {
         padding: 1rem 2rem;
         left: 60%;

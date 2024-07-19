@@ -1,10 +1,12 @@
 import { FC, useState } from 'react'
 import styles from './DoubleDisplay.module.css'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 interface Content {
     title: string;
     source: string;
+    path: string;
 }
 
 interface DoubleDisplayProps {
@@ -13,10 +15,11 @@ interface DoubleDisplayProps {
 
 const DoubleDisplay: FC<DoubleDisplayProps> = ({content}) => {
     const [selected, setSelected] = useState(0)
+    const navigate = useNavigate()
 
   return (
     <div className={styles.mainContainer} onMouseLeave={() => setSelected(0)}>
-        <section onMouseEnter={() => setSelected(1)}>
+        <section onMouseEnter={() => setSelected(1)} onClick={() => navigate(content[0].path)}>
             <img className={styles.img} src={content[0]['source']} alt="image" style={selected === 1 ? {transform: 'scale(1.2)'} : undefined}/>
             <div>
                 <motion.h1
@@ -31,7 +34,7 @@ const DoubleDisplay: FC<DoubleDisplayProps> = ({content}) => {
             </div>
             <div className={styles.filter}></div>
         </section>
-        <section onMouseEnter={() => setSelected(2)}>
+        <section onMouseEnter={() => setSelected(2)} onClick={() => navigate(content[1].path)}>
             <img className={styles.img} src={content[1]['source']} alt="image" style={selected === 2 ? {transform: 'scale(1.2)'} : undefined}/>
             <div>
                 <motion.h1

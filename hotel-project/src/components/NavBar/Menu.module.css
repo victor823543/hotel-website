@@ -19,6 +19,10 @@
     
 }
 
+.rightContainer {
+    display: none;
+}
+
 .h1 {
     font-size: 3rem;
     transition: all .3s;

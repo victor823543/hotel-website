@@ -5,6 +5,7 @@ import IntroductionSection from '../../components/IntroductionSection/Introducti
 import TextImgObjectB from '../../components/TextImgObjectB/TextImgObjectB'
 import TripleDisplay from '../../components/TripleDisplay/TripleDisplay'
 import ImageSliderA from '../../components/ImageSliderA/ImageSliderA'
+import DoubleDisplay from '../../components/DoubleDisplay/DoubleDisplay'
 import Footer from '../../components/Footer/Footer'
 
 import landingImg from '../../assets/images/pool-2.avif'
@@ -17,6 +18,8 @@ import roofImg1 from '../../assets/images/terrass-1.avif'
 import poolImg3 from '../../assets/images/pool-6.avif'
 import poolImg4 from '../../assets/images/pool-7.avif'
 import bigPoolImg from '../../assets/images/big-pool.jpg'
+import restImg1 from '../../assets/images/cocktailbar-1.webp'
+import roomImg1 from '../../assets/images/superior-rum-1.avif'
 
 const images = {
     landscapeA: gymImg1,
@@ -42,6 +45,10 @@ const content = [
         {title: 'Bassäng', source: bigPoolImg},
     ]
 
+const doubleDisplayContent = [
+  {title: 'MAT & DRYCK', source: restImg1, path: '/food'},
+  {title: 'VÅRA RUM', source: roomImg1, path: '/rooms'},
+]
 
 const WellnessPage = () => {
   return (
@@ -53,6 +60,7 @@ const WellnessPage = () => {
         <TripleDisplay content={tripleDisplayContent}/>
         <TextImgObjectB largeText={largeText2} smallText={smallText2} source={roofImg1}/>
         <ImageSliderA title='POOLUTBUD' content={content}/>
+        <DoubleDisplay content={doubleDisplayContent}/>
         <Footer />
     </div>
   )
